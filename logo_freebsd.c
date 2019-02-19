@@ -31,7 +31,7 @@
 __FBSDID("$FreeBSD$");
 
 unsigned int vt_logo_width = 248;
-unsigned int vt_logo_height = 189
+unsigned int vt_logo_height = 189;
 unsigned int vt_logo_depth = 1;
 
 unsigned char vt_logo_image[] = {
