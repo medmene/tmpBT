@@ -1,0 +1,13 @@
+#!/bin/sh
+
+. /etc/rc.subr
+
+name="loadtime"
+start_cmd="${name}_start"
+stop_cmd="."
+
+loadtime_start(){
+	top | grep up >> /timelog/log
+}
+load_rc_config $name
+run_rc_command "$1"
