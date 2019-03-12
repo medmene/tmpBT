@@ -12,3 +12,24 @@ loadtime_start(){
 }
 load_rc_config $name
 run_rc_command "$1"
+
+
+
+--- init_main.o ---
+/usr/src/sys/kern/init_main.c:216:2: error: implicit declaration of function 'gettimeofday' is invalid in C99 [-Werror,-Wimplicit-function-declaration]
+        gettimeofday(tv,NULL);
+        ^
+/usr/src/sys/kern/init_main.c:216:2: note: did you mean 'sys_gettimeofday'?
+/usr/src/sys/sys/sysproto.h:1879:5: note: 'sys_gettimeofday' declared here
+int     sys_gettimeofday(struct thread *, struct gettimeofday_args *);
+        ^
+/usr/src/sys/kern/init_main.c:216:2: error: this function declaration is not a prototype [-Werror,-Wstrict-prototypes]
+        gettimeofday(tv,NULL);
+        ^
+/usr/src/sys/kern/init_main.c:216:15: error: variable 'tv' is uninitialized when used here [-Werror,-Wuninitialized]
+        gettimeofday(tv,NULL);
+                     ^~
+/usr/src/sys/kern/init_main.c:215:20: note: initialize the variable 'tv' to silence this warning
+        struct timeval *tv;
+                          ^
+                           = NULL
