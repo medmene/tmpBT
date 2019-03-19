@@ -1,0 +1,4 @@
+#!/bin/sh
+
+cd /usr/src
+make -j4 kernel KERNCONF=AOS INSTKERNNAME=kernel.min
