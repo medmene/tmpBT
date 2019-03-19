@@ -1,5 +1,6 @@
 #!/bin/sh
 
+cd /boot
 mv loader.conf zg.ld
 mv device.hints zg.dev
 
