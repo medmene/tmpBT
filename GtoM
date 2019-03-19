@@ -1,0 +1,7 @@
+#!/bin/sh
+
+mv loader.conf zg.ld
+mv device.hints zg.dev
+
+mv zm.ld loader.conf
+mv zm.dev device.hints
