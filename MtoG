@@ -6,3 +6,6 @@ mv device.hints zm.dev
 
 mv zg.ld loader.conf 
 mv zg.dev device.hints 
+
+mv kernel kernel.min 
+mv kernel.good kernel
