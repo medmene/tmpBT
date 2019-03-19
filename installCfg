@@ -4,13 +4,22 @@ cd /tmpbt
 
 chmod +x GtoM
 chmod +x MtoG
+chmod +x mkKern
+
 cp device.hints /boot/zm.dev
 cp loader.conf /boot/zm.ld
 cp logo_freebsd.c /sys/dev/vt/logo/logo_freebsd.c
 cp AOS /usr/src/sys/amd64/conf/AOS
+
 unzip new.rc.d.zip 
 cd rc.d 
 chmod -R +x .
 cd ..
-mv rc.d /etc/zm.rc.d
-cd /tmpbt 
+mv /etc/rc.d /etc/zg.rc.d
+mv rc.d /etc/rc.d
+
+cd /tmpbt
+sh mkKern
+
+ct /tmpbt
+sh GtoM
