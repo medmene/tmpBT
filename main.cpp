@@ -162,33 +162,33 @@ int main(int, char**)
 
             ImGui::Begin("Caclulator");
 			
-			ImGui::Text("Минимизируемая функция:");
+			ImGui::Text("Minimize func:");
 			ImGui::InputText("", func, 128);
-			ImGui::Text("Интервал:");
+			ImGui::Text("Interval:");
 			ImGui::InputDouble("a=", &a);
 			ImGui::InputDouble("b=", &b);
 
-			ImGui::Text("Метод оптимизации:");
-			actv1 = ImGui::RadioButton("Метод Дихотомии", actv1);
-			actv2 = ImGui::RadioButton("Метод Золотого сечения", actv2);
-			if (ImGui::Button("Вычислить")) {
+			ImGui::Text("Optimisation method:");
+			actv1 = ImGui::RadioButton("Method Dihtomy", actv1);
+			actv2 = ImGui::RadioButton("Method Golden ratio", actv2);
+			if (ImGui::Button("Calculate")) {
 				if (string(func).size() != 0 && a < b) {
 					if (actv1 && !actv2) {
 						yRes = Dichotomy(string(func), a, b, 0.001, xRes);
-						string t = string(res) + "Метод Дихотомии:\n  Минимум в: x: " +
-							std::to_string(xRes) + " y: " + std::to_string(yRes) + "\n";
+						string t = string(res) + "Method Dihtomy:\n  Min in: x: " +
+							std::to_string(xRes) + " x: " + std::to_string(yRes) + "\n";
 						strcpy(res, t.c_str());
 					}
 					else if (actv2 && !actv1) {
 						yRes = GoldenRatio(string(func), a, b, 0.001, xRes);
-						string t = string(res) + "Метод Дихотомии:\n  Минимум в: x: " +
+						string t = string(res) + "Method Golden ratio:\n  Min in: x: " +
 							std::to_string(xRes) + " y: " + std::to_string(yRes) + "\n";
 						strcpy(res, t.c_str());
 					}
 				}					
 			}
 
-			ImGui::InputTextMultiline("Результаты:", res, 512, ImVec2(200, 200));
+			ImGui::InputTextMultiline("Results:", res, 512, ImVec2(200, 200));
             
             ImGui::End();
         }
